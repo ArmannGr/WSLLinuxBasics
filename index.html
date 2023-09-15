@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/solarized.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			.fragment.blur {
+			  filter: blur(5px);
+			}
+			.fragment.blur.visible {
+			  filter: none;
+			}
+		  </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section data-background-color="white">
+						<h2>💻</h2>
+						<h3>WSL Linux Basics</h3>
+					  </section>
+				</section>
+				<section>
+					<h2>Inhaltsverzeichnis</h1>
+					<ul>
+						<li><a href="#einfuehrung">Einführung in WSL Linux</a></li>
+						<li><a href="#installation">Installation von WSL</a></li>
+						<li><a href="#linux-basics">Grundlegende Linux-Befehle</a></li>
+						<li><a href="#dateiverwaltung">Dateiverwaltung</a></li>
+						<li><a href="#paketverwaltung">Paketverwaltung</a></li>
+						<li><a href="#netzwerkkonfiguration">Netzwerkkonfiguration</a></li>
+					</ul>
+				</section>
+				<!-- Abschnitt 1: Einführung in WSL Linux -->
+				<section id="einfuehrung">
+					<section id="einfuehrung-1">
+					<h3>Einführung in WSL Linux</h1>
+					<h2>🛫</h2>
+					</section>
+					<section id="einfuehrung-2" >
+						<h2>Windows Subsystem for Linux (WSL)</h2>
+						<p>
+							ist eine Kompatibilitätsschicht von Microsoft
+						</p>
+						<p>
+							ermöglicht eine Linux-Umgebung auf Windows auszuführen
+						</p>
+						<p>
+							Mit WSL können Sie Linux-Befehle ausführen, Linux-Tools verwenden und sogar eine
+							vollständige Linux-Distribution installieren und ausführen.
+						</p>
+						<p>
+							Dies erleichtert die Entwicklung und den Einsatz von Linux-Anwendungen auf einem
+							Windows-System erheblich.
+						</p>
+					</section>
+					<section>  
+						<h2>Warum WSL verwenden?</h2>  
+						<ul>  
+						  <li>Nahtlose Integration: WSL ermöglicht die Verwendung von Linux-Tools direkt in Windows</li>  
+						  <li>Entwicklerfreundlich: WSL erleichtert die Entwicklung von plattformübergreifenden Anwendungen</li>  
+						  <li>Flexibilität: WSL unterstützt eine Vielzahl von Linux-Distributionen, die nach Belieben ausgetauscht werden können</li>  
+						  <li>Leistungsfähigkeit: WSL ist sehr schnell und bietet eine native Linux-Performance</li>  
+						  <li>Keine Virtualisierung: Im Gegensatz zu anderen Virtualisierungslösungen benötigt WSL keine separate virtuelle Maschine</li>  
+						  <li>Kostenlos: WSL ist in Windows 10 kostenlos enthalten und erfordert keine zusätzliche Lizenzierung</li>  
+						</ul>  
+					  </section> 
+				</section>
+				
+	
+				<!-- Abschnitt 2: Installation von WSL -->
+				<section id="installation">
+					<section id="installation-1">
+						<h3>Installation von WSL</h1>
+						<h2>🛠</h2>
+					</section>
+					<section id="installation-2">
+						<h2>Installation von WSL</h1>
+						<a href="https://confluence.opscenter.flender.cloud/wiki/display/IE/Docker+WSL+Installation">Installation von WSL</a>
+					</section>
+				</section>
+				
+	
+				<!-- Abschnitt 3: Grundlegende Linux-Befehle -->
+				<section id="linux-basics">
+					<section id="linux-basics-1">
+						<h3>Grundlegende Linux-Befehle</h1>
+						<h2>🏗</h2>
+					</section>
+					<section id="linux-basics-2">
+						<h3>Grundlegende Linux-Befehle</h1>
+							<pre>
+							<code>
+								-$ ls
+							</code>
+						</pre>
+						<p class="fragment custom blur">Listet Dateien und Verzeichnisse im aktuellen Verzeichnis auf.</p>
+						<pre>
+							<code>
+								-$ pwd
+							</code>
+						</pre>
+						<p class="fragment custom blur">Zeigt das aktuelle Arbeitsverzeichnis (den Pfad) an.</p>
+					</section>
+					<section id="linux-basics-3">
+						<h3>Grundlegende Linux-Befehle</h1>
+							<pre> 
+								<code>
+								-$ cd Verzeichnisname
+								</code>
+							</pre>
+							<p class="fragment custom blur">Wechselt das Verzeichnis zum angegebenen Verzeichnisnamen.</p>
+							<pre>
+								<code>
+								-$ mkdir neues_verzeichnis
+								</code>
+							</pre>
+							<p class="fragment custom blur">Erstellt ein neues Verzeichnis.</p>
+					</section>
+					<section id="linux-basics-4">
+						<h3>Grundlegende Linux-Befehle</h1>
+							<pre> 
+								<code>
+								-$ rmdir neues_verzeichnis
+								</code>
+							</pre>
+							<p class="fragment custom blur">Löscht ein leeres Verzeichnis.</p>
+							<pre>
+								<code>
+								-$ touch dateiname.txt
+								</code>
+							</pre>
+							<p class="fragment custom blur">Erstellt eine leere Datei</p>
+					</section>
+					<section id="linux-basics-5">
+						<h3>Grundlegende Linux-Befehle</h1>
+							<pre> 
+								<code>
+								-$ rmdir neues_verzeichnis
+								</code>
+							</pre>
+							<p class="fragment custom blur">Löscht ein leeres Verzeichnis.</p>
+							<pre>
+								<code>
+								-$ touch dateiname.txt
+								</code>
+							</pre>
+							<p class="fragment custom blur">Erstellt eine leere Datei</p>
+					</section>
+					<section id="linux-basics-6"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ cp quelle_ziel </code> </pre> <p class="fragment custom blur">Kopiert Dateien oder Verzeichnisse.</p> <pre> <code> -$ mv alte_datei neue_datei </code> </pre> <p class="fragment custom blur">Verschiebt oder benennt Dateien oder Verzeichnisse um.</p> <pre> <code> -$ rm dateiname </code> </pre> <p class="fragment custom blur">Löscht eine Datei.</p> <pre> <code> -$ rm -r verzeichnisname </code> </pre> <p class="fragment custom blur">Löscht ein Verzeichnis und dessen Inhalt.</p> </section> <section id="linux-basics-7"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ cat dateiname.txt </code> </pre> <p class="fragment custom blur">Zeigt den Inhalt einer Datei an.</p> <pre> <code> -$ more dateiname.txt </code> </pre> <p class="fragment custom blur">Ermöglicht das Anzeigen des Inhalts langer Textdateien seitenweise.</p> <pre> <code> -$ less dateiname.txt </code> </pre> <p class="fragment custom blur">Ermöglicht das Anzeigen des Inhalts langer Textdateien seitenweise.</p> <pre> <code> -$ head -n 10 dateiname.txt </code> </pre> <p class="fragment custom blur">Zeigt die ersten 10 Zeilen einer Datei an.</p> <pre> <code> -$ tail -n 10 dateiname.txt </code> </pre> <p class="fragment custom blur">Zeigt die letzten 10 Zeilen einer Datei an.</p> </section>
+						<section id="linux-basics-8"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ grep "Suchmuster" dateiname.txt </code> </pre> <p class="fragment custom blur">Durchsucht Dateien nach einem Muster.</p> <pre> <code> -$ chmod 755 dateiname </code> </pre> <p class="fragment custom blur">Ändert die Berechtigungen von Dateien oder Verzeichnissen.</p> <pre> <code> -$ chown neuer_eigentuemer dateiname </code> </pre> <p class="fragment custom blur">Ändert den Eigentümer von Dateien oder Verzeichnissen.</p> </section> <section id="linux-basics-9"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ ps </code> </pre> <p class="fragment custom blur">Zeigt aktive Prozesse an.</p> <pre> <code> -$ kill prozess_id </code> </pre> <p class="fragment custom blur">Beendet einen Prozess.</p> <pre> <code> -$ df </code> </pre> <p class="fragment custom blur">Zeigt Informationen zur Festplattenauslastung an.</p> </section>
+							<section id="linux-basics-6"> <h3>Weitere Linux-Befehle</h3> <pre> <code> -$ du </code> </pre> <p class="fragment custom blur">Zeigt den belegten Speicherplatz für Dateien und Verzeichnisse an.</p> <pre> <code> -$ tar </code> </pre> <p class="fragment custom blur">Komprimiert und extrahiert Dateien und Verzeichnisse.</p> </section> <section id="linux-basics-7"> <h3>Weitere Linux-Befehle</h3> <pre> <code> -$ wget URL -$ curl URL </code> </pre> <p class="fragment custom blur">Lädt Dateien aus dem Internet herunter.</p> <pre> <code> -$ ping HOST </code> </pre> <p class="fragment custom blur">Überprüft die Netzwerkverbindung zu einem Host.</p> </section> <section id="linux-basics-8"> <h3>Weitere Linux-Befehle</h3> <pre> <code> -$ ifconfig -$ ip </code> </pre> <p class="fragment custom blur">Zeigt Netzwerkinformationen an.</p> </section>	
+
+				</section>
+			
+				  
+	
+				<!-- Abschnitt 4: Dateiverwaltung -->
+				<section id="dateiverwaltung">
+					<section>
+						<h1>Dateiverwaltung</h1>
+					</section>
+					<section>  
+						<h2>Das Dateisystem von Linux</h2>  
+						<ul>  
+						  <li>Das Dateisystem in Linux ist hierarchisch aufgebaut</li>  
+						  <li>Das Stammverzeichnis wird als "/" bezeichnet und enthält alle anderen Verzeichnisse und Dateien</li>  
+						  <li>Die wichtigsten Verzeichnisse sind:  
+							<ul>  
+							  <li>/bin - enthält ausführbare Binärdateien</li>  
+							  <li>/etc - enthält Konfigurationsdateien</li>  
+							  <li>/home - enthält die Benutzerverzeichnisse</li>  
+							  <li>/lib - enthält Bibliotheksdateien</li>  
+							  <li>/usr - enthält Anwendungen, Bibliotheken und Dokumentationen</li>  
+							  <li>/var - enthält variable Dateien wie Log-Dateien und temporäre Dateien</li>  
+							</ul>  
+						  </li>  
+						  <li>Das Dateisystem von Linux ist case-sensitive und erlaubt lange Dateinamen</li>  
+						  <li>Es gibt keine Laufwerksbuchstaben wie in Windows</li>  
+						</ul>  
+					  </section>  
+					  <section>  
+						<h2>File Permissions und Ownership</h2>  
+						<ul>  
+						  <li>Linux verwendet ein Berechtigungssystem, um den Zugriff auf Dateien und Verzeichnisse zu kontrollieren</li>  
+						  <li>Es gibt drei Arten von Berechtigungen:  
+							<ul>  
+							  <li>Lesen (r)</li>  
+							  <li>Schreiben (w)</li>  
+							  <li>Ausführen (x)</li>  
+							</ul>  
+						  </li>  
+						  <li>Die Berechtigungen werden für drei Gruppen von Benutzern definiert:  
+							<ul>  
+							  <li>Owner - der Benutzer, der die Datei erstellt hat</li>  
+							  <li>Group - die Gruppe, zu der der Owner gehört</li>  
+							  <li>Others - alle anderen Benutzer</li>  
+							</ul>  
+						  </li>  
+						  <li>Die Berechtigungen können mit dem Befehl "chmod" geändert werden</li>  
+						  <li>Die Ownership kann mit dem Befehl "chown" geändert werden</li>  
+						  <li>Es gibt auch spezielle Berechtigungen wie "suid", "sgid" und "sticky bit", die zusätzliche Funktionen bieten</li>  
+						</ul>  
+					  </section>  
+				</section>
+	
+				<!-- Abschnitt 5: Paketverwaltung -->
+				<section id="paketverwaltung">
+					<h1>Paketverwaltung</h1>
+					<p>Beschreibe, wie man Pakete in WSL Linux verwaltet.</p>
+				</section>
+	
+				<!-- Abschnitt 6: Netzwerkkonfiguration -->
+				<section id="netzwerkkonfiguration">
+					<h1>Netzwerkkonfiguration</h1>
+					<p>Erläutere die Netzwerkkonfiguration in WSL Linux.</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.on( 'make-it-pop', () => {
+  console.log('✨');
+} );
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
