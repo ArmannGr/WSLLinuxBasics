@@ -188,13 +188,15 @@
 				<section id="dateiverwaltung">
 					<section>
 						<h3>Dateiverwaltung</h3>
+						<h2>📂</h2>
 					</section>
 					<section>  
 						<h2>Das Dateisystem von Linux</h2>  
 						<ul>  
 						  <li>Das Dateisystem in Linux ist hierarchisch aufgebaut</li>  
 						  <li>Das Stammverzeichnis wird als "/" bezeichnet und enthält alle anderen Verzeichnisse und Dateien</li>  
-						</ul>  
+						</ul>
+						<img src="img/linux-file.jpg"  width="450" height="250">
 					  </section>
 					  <section>  
 						<h2>Das Dateisystem von Linux</h2>  
@@ -214,19 +216,24 @@
 					  <section>  
 						<h2>Das Dateisystem von Linux</h2>  
 						<ul>  
-						  <li>Das Dateisystem von Linux ist case-sensitive und erlaubt lange Dateinamen</li>  
+						  <li>Das Dateisystem von Linux ist case-sensitive und erlaubt lange Dateinamen</li> 
+						  <pre>
+							<code>
+								flender != Flender
+							</code>
+						</pre> 
 						  <li>Es gibt keine Laufwerksbuchstaben wie in Windows</li>  
 						</ul>  
 					  </section>      
 					  <section>  
 						<h2>File Permissions und Ownership</h2>  
 						<ul>  
-						  <li>Linux verwendet ein Berechtigungssystem, um den Zugriff auf Dateien und Verzeichnisse zu kontrollieren</li>  
+						  <li>Linux verwendet ein Berechtigungssystem, um den Zugriff auf Dateien und Verzeichnisse zu kontrollieren 🔐 </li> 
 						  <li>Es gibt drei Arten von Berechtigungen:  
 							<ul>  
-							  <li>Lesen (r)</li>  
-							  <li>Schreiben (w)</li>  
-							  <li>Ausführen (x)</li>  
+							  <li>Lesen (r) 📚</li>  
+							  <li>Schreiben (w) ✍</li>  
+							  <li>Ausführen (x) 😎</li>  
 							</ul>  
 						  </li>    
 						</ul>  
@@ -236,18 +243,27 @@
 						<ul>
 						  <li>Die Berechtigungen werden für drei Gruppen von Benutzern definiert:  
 							<ul>  
-							  <li>Owner - der Benutzer, der die Datei erstellt hat</li>  
-							  <li>Group - die Gruppe, zu der der Owner gehört</li>  
-							  <li>Others - alle anderen Benutzer</li>  
+							  <li>Owner - der Benutzer, der die Datei erstellt hat 🤵</li>  
+							  <li>Group - die Gruppe, zu der der Owner gehört 👨🏽‍🤝</li>  
+							  <li>Others - alle anderen Benutzer 🕺</li>  
 							</ul>  
-						  </li> 
-						  <li>Die Berechtigungen können mit dem Befehl "chmod" geändert werden</li>    
+						  </li>    
 						</ul>  
 					  </section>
 					  <section>  
 						<h2>File Permissions und Ownership</h2>    
-						  <li>Die Ownership kann mit dem Befehl "chown" geändert werden</li>  
-						  <li>Es gibt auch spezielle Berechtigungen wie "suid", "sgid" und "sticky bit", die zusätzliche Funktionen bieten</li>  
+						  <li>Die Ownership kann mit dem Befehl geändert werden</li>  
+						  <pre>
+							<code>
+								-$ chown 
+							</code>
+						</pre> 
+						<li>Die Berechtigungen können mit dem Befehl geändert werden</li>
+						<pre>
+						  <code>
+							  -$ chmod 
+						  </code>
+					  </pre> 
 						</ul>  
 					  </section>
 					  
@@ -266,6 +282,7 @@
 						  <li>Aktualisierung von vorhandener Software</li>  
 						  <li>Prüft Abhängigkeiten</li>  
 						</ul>  
+						<h2>👨‍💻</h2>
 					  </section>  
 					  <section>  
 						<h3>Verschiedene Paketverwaltungssysteme</h3>  
@@ -278,15 +295,19 @@
 					  <section>  
 						<h3>Verwendung der Paketverwaltung</h3>  
 						<p>Installation von neuer Software:</p>  
-						<ul>  
-						  <li>sudo apt-get install [Paketname] (für Ubuntu)</li>  
-						  <li>sudo yum install [Paketname] (für CentOS und Fedora)</li>  
-						</ul>  
-						<p>Aktualisierung von vorhandener Software:</p>  
-						<ul>  
-						  <li>sudo apt-get update && sudo apt-get upgrade (für Ubuntu)</li>  
-						  <li>sudo yum update (für CentOS und Fedora)</li>  
-						</ul>  
+							<pre>
+								<code>sudo apt-get install [Paketname] # für Ubuntu</code>
+							</pre>
+							<pre>
+								<code>sudo yum install [Paketname] # für CentOS und Fedora</code>
+							</pre>   
+						<p>Aktualisierung von vorhandener Software:</p>    
+						<pre>
+							<code>sudo apt-get update && sudo apt-get upgrade # für Ubuntu</code>
+						</pre>
+						<pre>
+							<code>sudo yum update # für CentOS und Fedora</code>
+						</pre>
 					  </section>  
 					  <section>  
 						<h3>Vorteile der Paketverwaltung</h3>  
@@ -302,19 +323,20 @@
 				<section id="netzwerkkonfiguration">
 					<section>
 						<h3>Netzwerkkonfiguration</h3>
+						<img src="img/network.jpg"  width="450" height="300">
 					</section>
 					<section>  
-						<h2>Netzwerkconfiguration</h2>  
+						<h3>Netzwerkconfiguration</h3>  
 						<p>Die Netzwerkconfiguration ist ein wichtiger Bestandteil von Linux-Systemen.</p>  
 						<ul>  
-						  <li>Ermöglicht die Verbindung mit anderen Geräten und Netzwerken</li>  
-						  <li>Ermöglicht die Konfiguration von Netzwerkadaptern</li>  
-						  <li>Ermöglicht die Konfiguration von Netzwerkprotokollen</li>  
+						  <li>Ermöglicht die Verbindung mit anderen Geräten und Netzwerken 💻➡💻</li>  
+						  <li>Ermöglicht die Konfiguration von Netzwerkadaptern 👨‍💻</li>  
+						  <li>Ermöglicht die Konfiguration von Netzwerkprotokollen ✍</li>  
 						</ul>  
 					  </section>  
 					  <section>  
-						<h3>Netzwerkadapter konfigurieren</h3>  
-						<p>Netzwerkadapter werden normalerweise automatisch konfiguriert, aber Sie können sie manuell konfigurieren, indem Sie:</p>  
+						<h3>Netzwerkadapter konfigurieren 👨‍💻</h3>  
+						<p>Netzwerkadapter werden normalerweise automatisch konfiguriert, aber können auch manuell konfiguriert werden:</p>  
 						<ul>  
 						  <li>IP-Adresse, Subnetzmaske und Standardgateway festlegen</li>  
 						  <li>DNS-Server konfigurieren</li>  
@@ -330,10 +352,10 @@
 						  <li>HTTP</li>  
 						  <li>FTP</li>  
 						</ul>  
-						<p>Sie können Netzwerkprotokolle konfigurieren, indem Sie die entsprechenden Konfigurationsdateien bearbeiten.</p>  
+						<p>Netzwerkprotokolle konfigurieren, indem die entsprechenden Konfigurationsdateien bearbeitet werden.</p>  
 					  </section>  
 					  <section>  
-						<h3>Vorteile der Netzwerkconfiguration</h3>  
+						<h3>Vorteile der Netzwerkconfiguration ⚙</h3>  
 						<ul>  
 						  <li>Ermöglicht die Verbindung mit anderen Geräten und Netzwerken</li>  
 						  <li>Ermöglicht die Konfiguration von Netzwerkadaptern und -protokollen</li>  
