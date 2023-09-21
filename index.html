@@ -8,394 +8,91 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/night.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-		<style>
-			.fragment.blur {
-			  filter: blur(5px);
-			}
-			.fragment.blur.visible {
-			  filter: none;
-			}
-		  </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<section data-background-color="white">
-						<h2>💻</h2>
-						<h3>WSL Linux Basics</h3>
-					  </section>
-				</section>
-				<section>
-					<h2>Inhaltsverzeichnis</h1>
-					<ul>
-						<li><a href="#einfuehrung">Einführung in WSL Linux</a></li>
-						<li><a href="#installation">Installation von WSL</a></li>
-						<li><a href="#linux-basics">Grundlegende Linux-Befehle</a></li>
-						<li><a href="#dateiverwaltung">Dateiverwaltung</a></li>
-						<li><a href="#paketverwaltung">Paketverwaltung</a></li>
-						<li><a href="#netzwerkkonfiguration">Netzwerkkonfiguration</a></li>
-					</ul>
-				</section>
-				<!-- Abschnitt 1: Einführung in WSL Linux -->
-				<section id="einfuehrung">
-					<section id="einfuehrung-1">
-					<h3>Einführung in WSL Linux</h1>
-					<img src="img/linux-logo.png"  width="450" height="350">
-					</section>
-					<section id="einfuehrung-2" >
-						<h2 >Windows Subsystem for Linux (WSL)</h2>
-						<p>
-							ist eine Kompatibilitätsschicht von Microsoft
-						</p>
-						<p>
-							ermöglicht eine Linux-Umgebung auf Windows auszuführen
-						</p>
-						<img src="img/windowsandlinuxlogo.png"  width="350" height="250">
-					</section>
-					<section>
-						<h2>Windows Subsystem for Linux (WSL)</h2>
-						<p>
-							Linux-Befehle ausführen, Linux-Tools verwenden und vollständige Linux-Distribution
-							installieren und ausführen
-						</p>
-						<p>
-							erleichtert Entwicklung und Einsatz von Linux-Anwendungen auf 
-							Windows-System
-						</p>
-						<img src="img/Ubuntu-Terminal-Moo.webp"  width="300" height="150">
-						<aside class="notes">
-							<p>
-								Mit WSL kann man Linux-Befehle ausführen, Linux-Tools verwenden und vollständige Linux-Distribution
-								installieren und ausführen.
-							</p>
-							<p>
-								Dies erleichtert die Entwicklung und den Einsatz von Linux-Anwendungen auf einem
-								Windows-System erheblich.
-						</aside>
-					</section>
-					<section>  
-						<h2>Warum WSL verwenden?</h2>  
-						<ul>  
-						  <li>Nahtlose Integration</li>  
-						  <li>Entwicklerfreundlich</li>  
-						</ul>
+                <section data-markdown>
+                    <textarea data-template>
+                      ## Willkommen zum Workshop 
+                      ## Duali [Devs](https://www.youtube.com/watch?v=ysEN5RaKOlA) 🎉 
+                      <img src="img/dockeranKubernetes.jpeg" width="550" height="400">
+                      ---
+                      ## Was steht auf der Liste ?
+                      > Linux
 
-						<img src="img/Entwicklung.jpg"  width="550" height="300">  
-						<aside class="notes">
-							<ul>  
-								<li>Nahtlose Integration: WSL ermöglicht die Verwendung von Linux-Tools direkt in Windows</li>  
-								<li>Entwicklerfreundlich: WSL erleichtert die Entwicklung von plattformübergreifenden Anwendungen</li>  
-							  </ul>
-						</aside>
-					  </section>
-					  <section>  
-						<h2>Warum WSL verwenden?</h2>
-						<p>Flexibilität</p>
-						<p>Leistungsfähigkeit</p>   
-						<img src="img/high-performance-computing-1.jpg"  width="350" height="200">  
-						<aside class="notes">
-							<ul>   
-								<li>Flexibilität: WSL unterstützt eine Vielzahl von Linux-Distributionen, die nach Belieben ausgetauscht werden können</li>  
-								<li>Leistungsfähigkeit: WSL ist sehr schnell und bietet eine native Linux-Performance</li>  
-							  </ul> 
-						</aside>
-					  </section> 
-					  <section>  
-						<h2>Warum WSL verwenden?</h2>  
-						<p>Keine Virtualisierung</p>
-						<p>Kostenlos</p>
-						<img src="img/noVM.png"  width="350" height="200"> 
-						<aside class="notes">
-							<ul>  
-								<li>Keine Virtualisierung: Im Gegensatz zu anderen Virtualisierungslösungen benötigt WSL keine separate virtuelle Maschine</li>  
-								<li>Kostenlos: WSL ist in Windows 10 kostenlos enthalten und erfordert keine zusätzliche Lizenzierung</li>  
-							  </ul> 
-						</aside>
-					  </section> 
-					</section> 
-					
-				
-	
-				<!-- Abschnitt 2: Installation von WSL -->
-				<section id="installation">
-					<section id="installation-1">
-						<h3>Installation von WSL</h1>
-							<img src="img/install-software-laptop.jpg"  width="350" height="200">
-					</section>
-					<section id="installation-2">
-						<h2>Installation von WSL</h1>
-						<a href="https://confluence.opscenter.flender.cloud/wiki/display/IE/Docker+WSL+Installation">Installation von WSL</a>
-					</section>
-				</section>
-				
-	
-				<!-- Abschnitt 3: Grundlegende Linux-Befehle -->
-				<section id="linux-basics">
-					<section id="linux-basics-1">
-						<h3>Grundlegende Linux-Befehle</h1>
-						<h2>🏗</h2>
-					</section>
-					<section id="linux-basics-2">
-						<h3>Grundlegende Linux-Befehle</h1>
-							<pre>
-							<code>
-								-$ ls
-							</code>
-						</pre>
-						<p class="fragment custom blur">Listet Dateien und Verzeichnisse im aktuellen Verzeichnis auf.</p>
-						<pre>
-							<code>
-								-$ pwd
-							</code>
-						</pre>
-						<p class="fragment custom blur">Zeigt das aktuelle Arbeitsverzeichnis (den Pfad) an.</p>
-					</section>
-					<section id="linux-basics-3">
-						<h3>Grundlegende Linux-Befehle</h1>
-							<pre> 
-								<code>
-								-$ cd Verzeichnisname
-								</code>
-							</pre>
-							<p class="fragment custom blur">Wechselt das Verzeichnis zum angegebenen Verzeichnisnamen.</p>
-							<pre>
-								<code>
-								-$ mkdir neues_verzeichnis
-								</code>
-							</pre>
-							<p class="fragment custom blur">Erstellt ein neues Verzeichnis.</p>
-					</section>
-					<section id="linux-basics-4">
-						<h3>Grundlegende Linux-Befehle</h1>
-							<pre> 
-								<code>
-								-$ rmdir neues_verzeichnis
-								</code>
-							</pre>
-							<p class="fragment custom blur">Löscht ein leeres Verzeichnis.</p>
-							<pre>
-								<code>
-								-$ touch dateiname.txt
-								</code>
-							</pre>
-							<p class="fragment custom blur">Erstellt eine leere Datei</p>
-					</section>
-					<section id="linux-basics-5">
-						<h3>Grundlegende Linux-Befehle</h1>
-							<pre> 
-								<code>
-								-$ rmdir neues_verzeichnis
-								</code>
-							</pre>
-							<p class="fragment custom blur">Löscht ein leeres Verzeichnis.</p>
-							<pre>
-								<code>
-								-$ touch dateiname.txt
-								</code>
-							</pre>
-							<p class="fragment custom blur">Erstellt eine leere Datei</p>
-					</section>
-					<section id="linux-basics-6"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ cp quelle_ziel </code> </pre> <p class="fragment custom blur">Kopiert Dateien oder Verzeichnisse.</p> <pre> <code> -$ mv alte_datei neue_datei </code> </pre> <p class="fragment custom blur">Verschiebt oder benennt Dateien oder Verzeichnisse um.</p> <pre> <code> -$ rm dateiname </code> </pre> <p class="fragment custom blur">Löscht eine Datei.</p> <pre> <code> -$ rm -r verzeichnisname </code> </pre> <p class="fragment custom blur">Löscht ein Verzeichnis und dessen Inhalt.</p> </section> <section id="linux-basics-7"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ cat dateiname.txt </code> </pre> <p class="fragment custom blur">Zeigt den Inhalt einer Datei an.</p> <pre> <code> -$ more dateiname.txt </code> </pre> <p class="fragment custom blur">Ermöglicht das Anzeigen des Inhalts langer Textdateien seitenweise.</p> <pre> <code> -$ less dateiname.txt </code> </pre> <p class="fragment custom blur">Ermöglicht das Anzeigen des Inhalts langer Textdateien seitenweise.</p> <pre> <code> -$ head -n 10 dateiname.txt </code> </pre> <p class="fragment custom blur">Zeigt die ersten 10 Zeilen einer Datei an.</p> <pre> <code> -$ tail -n 10 dateiname.txt </code> </pre> <p class="fragment custom blur">Zeigt die letzten 10 Zeilen einer Datei an.</p> </section>
-						<section id="linux-basics-8"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ grep "Suchmuster" dateiname.txt </code> </pre> <p class="fragment custom blur">Durchsucht Dateien nach einem Muster.</p> <pre> <code> -$ chmod 755 dateiname </code> </pre> <p class="fragment custom blur">Ändert die Berechtigungen von Dateien oder Verzeichnissen.</p> <pre> <code> -$ chown neuer_eigentuemer dateiname </code> </pre> <p class="fragment custom blur">Ändert den Eigentümer von Dateien oder Verzeichnissen.</p> </section> <section id="linux-basics-9"> <h3>Grundlegende Linux-Befehle</h1> <pre> <code> -$ ps </code> </pre> <p class="fragment custom blur">Zeigt aktive Prozesse an.</p> <pre> <code> -$ kill prozess_id </code> </pre> <p class="fragment custom blur">Beendet einen Prozess.</p> <pre> <code> -$ df </code> </pre> <p class="fragment custom blur">Zeigt Informationen zur Festplattenauslastung an.</p> </section>
-							<section id="linux-basics-6"> <h3>Weitere Linux-Befehle</h3> <pre> <code> -$ du </code> </pre> <p class="fragment custom blur">Zeigt den belegten Speicherplatz für Dateien und Verzeichnisse an.</p> <pre> <code> -$ tar </code> </pre> <p class="fragment custom blur">Komprimiert und extrahiert Dateien und Verzeichnisse.</p> </section> <section id="linux-basics-7"> <h3>Weitere Linux-Befehle</h3> <pre> <code> -$ wget URL -$ curl URL </code> </pre> <p class="fragment custom blur">Lädt Dateien aus dem Internet herunter.</p> <pre> <code> -$ ping HOST </code> </pre> <p class="fragment custom blur">Überprüft die Netzwerkverbindung zu einem Host.</p> </section> <section id="linux-basics-8"> <h3>Weitere Linux-Befehle</h3> <pre> <code> -$ ifconfig -$ ip </code> </pre> <p class="fragment custom blur">Zeigt Netzwerkinformationen an.</p> </section>	
+                      > Docker
 
-				</section>
-			
-				  
-	
-				<!-- Abschnitt 4: Dateiverwaltung -->
-				<section id="dateiverwaltung">
-					<section>
-						<h3>Dateiverwaltung</h3>
-						<h2>📂</h2>
-					</section>
-					<section>  
-						<h2>Das Dateisystem von Linux</h2>  
-						
-						<img src="img/linux-file.jpg">
-						<aside class="notes">
-							<ul>  
-								<li>Das Dateisystem in Linux ist hierarchisch aufgebaut</li>  
-								<li>Das Stammverzeichnis wird als "/" bezeichnet und enthält alle anderen Verzeichnisse und Dateien</li>  
-							  </ul>
-							  <ul> 
-								<li>Die wichtigsten Verzeichnisse sind:  
-								  <ul>  
-									<li>/bin - enthält ausführbare Binärdateien</li>  
-									<li>/etc - enthält Konfigurationsdateien</li>  
-									<li>/home - enthält die Benutzerverzeichnisse</li>  
-									<li>/lib - enthält Bibliotheksdateien</li>  
-									<li>/usr - enthält Anwendungen, Bibliotheken und Dokumentationen</li>  
-									<li>/var - enthält variable Dateien wie Log-Dateien und temporäre Dateien</li>  
-								  </ul>  
-								</li>  
-							  </ul>  
-						</aside>
-					  </section>
-					  <section>  
-						<h2>Das Dateisystem von Linux</h2>  
-						<ul>  
-						  <li>Das Dateisystem von Linux ist case-sensitive und erlaubt lange Dateinamen</li> 
-						  <pre>
-							<code>
-								flender != Flender
-							</code>
-						</pre> 
-						  <li>Es gibt keine Laufwerksbuchstaben wie in Windows</li>  
-						</ul>  
-					  </section>      
-					  <section>  
-						<h2>File Permissions und Ownership</h2>  
-						<ul>  
-						  <li>Linux verwendet ein Berechtigungssystem, um den Zugriff auf Dateien und Verzeichnisse zu kontrollieren 🔐 </li> 
-						  <li>Es gibt drei Arten von Berechtigungen:  
-							<ul>  
-							  <li>Lesen (r) 📚</li>  
-							  <li>Schreiben (w) ✍</li>  
-							  <li>Ausführen (x) 😎</li>  
-							</ul>  
-						  </li>    
-						</ul>  
-					  </section>
-					  <section>  
-						<h2>File Permissions und Ownership</h2>  
-						<ul>
-						  <li>Die Berechtigungen werden für drei Gruppen von Benutzern definiert:  
-							<ul>  
-							  <li>Owner - der Benutzer, der die Datei erstellt hat 🤵</li>  
-							  <li>Group - die Gruppe, zu der der Owner gehört 👨🏽‍🤝</li>  
-							  <li>Others - alle anderen Benutzer 🕺</li>  
-							</ul>  
-						  </li>    
-						</ul>  
-					  </section>
-					  <section>  
-						<h2>File Permissions und Ownership</h2>    
-						  <li>Die Ownership kann mit dem Befehl geändert werden</li>  
-						  <pre>
-							<code>
-								-$ chown 
-							</code>
-						</pre> 
-						<li>Die Berechtigungen können mit dem Befehl geändert werden</li>
-						<pre>
-						  <code>
-							  -$ chmod 
-						  </code>
-					  </pre> 
-						</ul>  
-					  </section>
-					  
-				</section>
-	
-				<!-- Abschnitt 5: Paketverwaltung -->
-				<section id="paketverwaltung">
-					<section>
-						<h3>Paketverwaltung</h3>
-						<h2>📦</h2>
-					</section>
-					<section>  
-						<h2>Paketverwaltung</h2>  
-						<p>Die Paketverwaltung ist ein wichtiger Bestandteil von Linux-Systemen.</p>  
-						<ul>  
-						  <li>Ermöglicht Installation von neuer Software</li>  
-						  <li>Aktualisierung von vorhandener Software</li>  
-						  <li>Prüft Abhängigkeiten</li>  
-						</ul>  
-						<h2>👨‍💻</h2>
-					  </section>  
-					  <section>  
-						<h3>Verschiedene Paketverwaltungssysteme</h3>  
-						<ul>  
-						  <li>APT (Advanced Package Tool) für Debian und Ubuntu</li>  
-						  <li>RPM (Red Hat Package Manager) für CentOS und Fedora</li>  
-						  <li>Pacman für Arch Linux</li>  
-						</ul>  
-					  </section>  
-					  <section>  
-						<h3>Verwendung der Paketverwaltung</h3>  
-						<p>Installation von neuer Software:</p>  
-							<pre>
-								<code>sudo apt-get install [Paketname] # für Ubuntu</code>
-							</pre>
-							<pre>
-								<code>sudo yum install [Paketname] # für CentOS und Fedora</code>
-							</pre>   
-						<p>Aktualisierung von vorhandener Software:</p>    
-						<pre>
-							<code>sudo apt-get update && sudo apt-get upgrade # für Ubuntu</code>
-						</pre>
-						<pre>
-							<code>sudo yum update # für CentOS und Fedora</code>
-						</pre>
-					  </section>  
-					  <section>  
-						<h3>Vorteile der Paketverwaltung</h3>  
-						<ul>  
-						  <li>Einfache Verwaltung von Software auf Linux-Systemen</li>  
-						  <li>Prüfung von Abhängigkeiten</li>  
-						  <li>Sichere Installation und Aktualisierung von Software</li>  
-						</ul>  
-					  </section>  					  
-				</section>
-	
-				<!-- Abschnitt 6: Netzwerkkonfiguration -->
-				<section id="netzwerkkonfiguration">
-					<section>
-						<h3>Netzwerkkonfiguration</h3>
-						<img src="img/network.jpg"  width="450" height="300">
-					</section>
-					<section>  
-						<h3>Netzwerkconfiguration</h3>  
-						<p>Die Netzwerkconfiguration ist ein wichtiger Bestandteil von Linux-Systemen.</p>  
-						<ul>  
-						  <li>Ermöglicht die Verbindung mit anderen Geräten und Netzwerken 💻➡💻</li>  
-						  <li>Ermöglicht die Konfiguration von Netzwerkadaptern 👨‍💻</li>  
-						  <li>Ermöglicht die Konfiguration von Netzwerkprotokollen ✍</li>  
-						</ul>  
-					  </section>  
-					  <section>  
-						<h3>Netzwerkadapter konfigurieren 👨‍💻</h3>  
-						<p>Netzwerkadapter werden normalerweise automatisch konfiguriert, aber können auch manuell konfiguriert werden:</p>  
-						<ul>  
-						  <li>IP-Adresse, Subnetzmaske und Standardgateway festlegen</li>  
-						  <li>DNS-Server konfigurieren</li>  
-						  <li>Netzwerkprotokolle konfigurieren, z.B. TCP/IP</li>  
-						</ul>  
-					  </section>  
-					  <section>  
-						<h3>Netzwerkprotokolle konfigurieren</h3>  
-						<p>Linux unterstützt verschiedene Netzwerkprotokolle, darunter:</p>  
-						<ul>  
-						  <li>TCP/IP</li>  
-						  <li>UDP</li>  
-						  <li>HTTP</li>  
-						  <li>FTP</li>  
-						</ul>  
-						<p>Netzwerkprotokolle konfigurieren, indem die entsprechenden Konfigurationsdateien bearbeitet werden.</p>  
-					  </section>  
-					  <section>  
-						<h3>Vorteile der Netzwerkconfiguration ⚙</h3>  
-						<ul>  
-						  <li>Ermöglicht die Verbindung mit anderen Geräten und Netzwerken</li>  
-						  <li>Ermöglicht die Konfiguration von Netzwerkadaptern und -protokollen</li>  
-						  <li>Ermöglicht die Optimierung der Netzwerkperformance</li>  
-						</ul>  
-					  </section>  					  
-				</section>
-				<section>
-					<h2>Fragen?</h2>
-					<iframe src="https://giphy.com/embed/IdI1SssZmrnFsjQ2Qx" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/wdr-sendung-mit-der-maus-sendungmitdermaus-diemaus-IdI1SssZmrnFsjQ2Qx"></a></p>
-				</section>
-				<section>
-					<h3><a href="./willkommen.html#/3">Hands-On</a></h3>
-					<iframe src="https://giphy.com/embed/SwC7zuBPx1vUNXAoGm" width="480" height="368" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/swerk-SwC7zuBPx1vUNXAoGm"></a></p>
-				</section>
+                      > Pipelining 
+                      
+                      > Kubernetes 
+
+                      ---
+
+                    ## Warum ?
+                    <img src="img/devs.avif" width="500" height="500">
+
+                    <aside class="notes">
+                        - Aktueller Trend
+
+                        - Open Source-Technologien -> offener Source Code 
+
+                        - Arbeiten bei Flender 
+                    </aside>
+
+                    --- 
+
+
+                      ---
+
+                      ## Erster Block
+                      > Einführung in [Linux](./linux.html)
+  
+                      > Hands-On [Linux](https://ubuntu.com/tutorials/command-line-for-beginners#3-opening-a-terminal)
+  
+                      ---
+                      
+                      ## Zweiter Block 
+                      > Einführung in [Docker](./docker.html)
+
+                      > Hands-On [Docker](https://www.docker.com/101-tutorial/)
+
+                      > Bene Zeigt coole Sachen
+                    
+                      ---
+                      ## Dritter Block 
+
+                      > Einführung in [Kubernetes](https://www.youtube.com/watch?v=VnvRFRk_51k)
+
+                      > Hands-On [Kubernetes](https://kubernetes.io/docs/tutorials/hello-minikube/)
+
+                      ---
+
+                      ## Vierter Block 
+                      > Vorstellung meiner [Bachelorarbeit](./bachelor.html)
+
+                      ---
+
+                      ## Fünfter Block 
+                      > Einführung in CI/CD Pipelining
+
+                      > Hands-On [CI/CD Pipelining](https://docs.gitlab.com/ee/ci/quick_start/)
+
+                      ---
+
+                      ## Duali Diskurs
+                      > Tools
+                      
+                      > Webentwicklung Basics
+
+                    </textarea>
+                  </section>
 			</div>
 		</div>
 
@@ -404,9 +101,6 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			Reveal.on( 'make-it-pop', () => {
-  console.log('✨');
-} );
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
@@ -414,7 +108,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealNotes ],
 			});
 		</script>
 	</body>
