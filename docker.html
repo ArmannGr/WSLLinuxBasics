@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="./img/wp8114669.webp">
+					<aside class="notes">
+						Beispiel Wohnung nach USA mitnehmen was müssste mit sodass alle genau so aussieht wie vorher
+					</aside>
+				</section>
+
+				<section>
+					<h3>Ziel</h3>
+					<ul>
+						<li>Konzept hinter Docker verstehen</li>
+						<li>Einsatzmöglichkeiten erkennen</li>
+						<li>Hands-On nachvollziehen können</li>
+					</ul>
+				</section>
+				  <section>
+					Was ist ein Container ?
+					<img src="./img/what-is-docker-container.png">
+					<aside class="notes">
+						Was ist ein Container?
+						<br>
+						<ul>
+							<li>
+								Isolierte Sandbox auf euerem Rechner
+							</li>
+							<li>
+								Ist eine ausführbare Insatnz eines Images
+							</li>
+							<li>
+								Es kann auf der lokalen oder auf eine virtuellen Machine laufen als auch in der Cloud deployed werden  
+							</li>
+							<li>
+								läuft auf jedem Betribessystem
+							</li>
+							<li>
+								ist komplett isoliert von anderen Containern ( eigene Software binaries und configurations)
+							</li>
+						</ul>
+					  </aside>
+			  </section>
+				  <section>
+					Was ist ein Container Image ?
+					<img src="./img/image-blog-docker-containers.jpg">
+					<aside class="notes">
+						<ul>
+							<li>
+								Image beinhaltet eigenes Dateisystem und alles was man nbenötigt um eine Applikation zum laufen zu bringen
+								all dependencies, configurations, scripts, binaries, etc.
+							</li>
+							<li>
+								Beinhalten auch configurations wie environment variables und metadaten 
+							</li>
+							<li>Bauplan von dem Container</li>
+						</ul>
+					  </aside>
+				  </section>
+				  <section>
+					Was ist also Docker ?
+					<img src="./img/docker-archticture.png">
+					<aside class="notes">
+						<ul>
+							<li>
+								Virtualisierungsoftware
+							</li>
+							<li>
+								macht das entwicklen und das bereitstellen von Applikation deutlich einfacher
+							</li>
+							<li>
+								Verpackt alle nötigen Ressourcen und configurationen in eine Container
+							</li>
+							<li>
+								Ein Container ist eine Standertisierte Einheit, welches alles beinhaltet, was eine Applikation benötigt um zu laufen
+							</li>
+							<li>
+								Es ist Portierbar und einfach zu teilen 
+							</li>
+						</ul>
+					</aside>
+				  </section>
+				  <section>
+					Warum brauchen wir das?
+					<img src="./img/Why-Should-You-Use-Docker-7-Major-Reasons.png">
+					<aside class="notes">
+						<ul>
+							<li>Einrichten einer Development Umgebung</li>
+							<li>DB Beispiel Configuration</li>
+						</ul>
+						<ul>
+							<li>Installation und Configuration durch Docker übernommen
+								einfacheres Deployment
+							</li>
+						</ul>
+					</aside>
+				  </section>
+				  <section>
+					Virtuelle Maschine vs Docker Container
+					<img src="./img/containers-vs-virtual-machines.jpg">
+					<aside class="notes">
+						<ul>
+							<li>
+								Virtuelle Maschine muss eigens Betribesystem haben 
+							</li>
+							<li>
+								Docker emuliert das Betribessystem
+							</li>
+							<li>
+								Docker images haben wenige MBs
+								VM images haben ein GBs
+							</li>
+							<li>
+								Docker Container laufen in sekunden 
+								VMs laufen in minuten
+							</li>
+						</ul> 
+					</aside>
+				  </section>
+				  <section>
+					Unser Einsatz von Docker
+					<section>
+						<img src="./img/Gitlab.png">
+						<aside class="notes">
+							<ul>
+								<li>Pipelining, was von Nils präsentiert wurde</li>
+							</ul>
+					</aside>
+					</section>
+					<section>
+						<pre>
+							.gitlab-ci.yml
+							<code>
+.release:
+	image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/node:bullseye-slim
+	stage: release
+	interruptible: true
+	before_script:
+		- apt-get update && apt-get install -y --no-install-recommends git-core ca-certificates
+		- npm install -g semantic-release @semantic-release/gitlab @semantic-release/git
+	script:
+		- semantic-release
+							</code>
+						</pre>
+						<aside class="notes">
+							<ul>
+								<li>release pipeline wird über ein docker image erstellt</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<pre>
+							.gitlab-ci.yml
+							<code>
+build-docker:
+  extends: .docker
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - >
+      /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile
+      --cache=true --destination $CI_REGISTRY_IMAGE:mr-$CI_MERGE_REQUEST_IID
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "stage"'
+
+							</code>
+						</pre>
+						<aside class="notes">
+							<ul>
+								<li>image der Applikation wird erstellt</li>
+							</ul>
+						</aside>
+					</section>
+					<section><img src="./img/Kubernetes-logo.webp"></section>
+							<aside class="notes">
+							<ul>
+								<li>Dort gibt es Pods</li>
+								<li>kleinste deploybare Einheit im Computing, welche man erstellen und Verwalten kann im Kuberentes</li>
+								<li>IN einem Pod läuft dort ein oder mehrere Container</li>
+								<li>Thema nochmal für eine einzelne/mehrere Seesion</li>
+							</ul>
+						</aside>
+					<section>
+						<img src="./img/software-development.jpg">
+						<aside class="notes">
+							<ul>
+								<li>in der lokalen Development Umgebung</li>
+								<li>Beispiel um eine DB mit bestimmten Configurationen zum starten zu bekommen</li>
+							</ul>
+						</aside>
+					</section>
+
+				  </section>
+				  <section>
+						Hands-On
+						<section>
+							Containerisieren einer Applikation
+							<pre>
+								Dockerfile
+								<code>
+									FROM node:18-alpine
+									WORKDIR /app
+									COPY . .
+									RUN yarn install --production
+									CMD ["node", "src/index.js"]
+									EXPOSE 3000
+								</code>
+							</pre>
+							<aside class="notes">
+								<ul>
+									<li>FROM - Spezifiziert das Base Image </li>
+									<li>WORKDIR - Das ist der Pfad der gesetzt wird, der die folgenden Commands ausführt</li>
+									<li>COPY - kopiert Dateien und Directories in den Container</li>
+									<li>RUN - installieren von packages in den Container</li>
+									<li>CMD - beinhaltet argumente für den auszuführenden Container</li>
+									<li>EXPOSE - spezifiziert den Port</li>
+									<li>https://docs.docker.com/get-started/02_our_app/</li>
+								</ul>
+							</aside>
+						</section>
+						<section>
+							<p class="r-fit-text">Applikationen Teilen</p> 
+							<ul>
+								<li>Docker Container Registry</li>
+								<li>Gitlab Container Registry</li>
+							</ul>
+						</section>
+						<section>
+							Benutzen von Docker Compose
+							<pre>
+								docker-compose.yml
+								<code>
+									version: "3.7"
+
+									services:
+									db:
+										image: library/postgres:latest
+										container_name: educationSchedulerDB
+										environment:
+										POSTGRES_PASSWORD: password
+										POSTGRES_USER: educationScheduler
+										POSTGRES_DB: educationScheduler
+										networks:
+										- educationScheduler
+										ports:
+										- 32780:5432
+										volumes:
+										- "educationSchedulerDB:/var/lib/postgresql/data"
+
+									networks:
+									educationScheduler:
+
+									volumes:
+									educationSchedulerDB:
+								</code>
+							</pre>
+						</section>
+				  </section>
+				  <section>
+					<div class="tenor-gif-embed" data-postid="5981172" data-share-method="host" data-aspect-ratio="2.21239" data-width="100%"><a href="https://tenor.com/view/danke-minions-noch-fragen-fragen-jubel-gif-5981172">Danke Für Eure Aufmerksamkeit - Danke GIF</a>from <a href="https://tenor.com/search/danke-gifs">Danke GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+				  </section>
+				  <section>
+					<h2><a href="./willkommen.html#/4">Hands-On</a></h2>
+					<iframe src="https://giphy.com/embed/qgQUggAC3Pfv687qPC" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dommespace-domme-space-programador-qgQUggAC3Pfv687qPC"></a></p>
+				  </section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealNotes ],
+			});
+		</script>
+	</body>
+</html>
